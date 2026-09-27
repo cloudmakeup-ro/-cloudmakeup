@@ -7,91 +7,241 @@
 
 <style>
 *{box-sizing:border-box}
+html{scroll-behavior:smooth}
+
 body{
  margin:0;
- font-family:Arial,sans-serif;
- color:#17364d;
- background:white;
+ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+ color:#18384e;
+ background:#fff;
 }
+
 .demo{
- background:#a9dcf8;
+ background:#b9e5ff;
  text-align:center;
  padding:8px;
  font-size:12px;
 }
+
 header{
- padding:16px;
+ background:white;
+ padding:14px 16px;
  display:flex;
- justify-content:space-between;
  align-items:center;
+ justify-content:space-between;
+ position:sticky;
+ top:0;
+ z-index:10;
+ border-bottom:1px solid #edf5fa;
 }
+
 .logo{
- font-size:25px;
- font-weight:bold;
- color:#63aee0;
+ font-size:23px;
+ font-weight:800;
+ color:#61aee0;
 }
+
+.logo span{
+ font-weight:400;
+ color:#18384e;
+}
+
 .cart{
  border:0;
  background:#eaf7ff;
- padding:10px 14px;
- border-radius:20px;
-}
-.hero{
- background:linear-gradient(135deg,#effaff,#bde7ff);
- text-align:center;
- padding:55px 20px;
-}
-.cloud{font-size:65px}
-h1{
- font-size:43px;
- margin:5px 0;
-}
-.hero p{
- max-width:500px;
- margin:15px auto 25px;
-}
-.shop{
- background:#17364d;
- color:white;
- padding:13px 22px;
  border-radius:25px;
- text-decoration:none;
+ padding:10px 14px;
+ font-weight:600;
 }
-section{padding:30px 18px}
-.products{
- display:grid;
- grid-template-columns:repeat(2,1fr);
- gap:12px;
-}
-.card{
- border:1px solid #e0eef7;
- border-radius:18px;
- padding:11px;
-}
-.pic{
- height:120px;
- background:#eaf8ff;
- border-radius:14px;
+
+.hero{
+ min-height:390px;
+ background:
+ radial-gradient(circle at 20% 20%,#fff 0 8%,transparent 9%),
+ linear-gradient(145deg,#effaff,#b9e5ff);
  display:flex;
  align-items:center;
  justify-content:center;
- font-size:45px;
+ text-align:center;
+ padding:45px 20px;
 }
-.card h3{font-size:15px}
-.price{font-weight:bold}
-.card button{
+
+.cloud{font-size:75px}
+
+.hero h1{
+ margin:5px 0;
+ font-size:46px;
+ line-height:1;
+}
+
+.hero p{
+ max-width:500px;
+ margin:18px auto 28px;
+ line-height:1.5;
+}
+
+.shop{
+ display:inline-block;
+ background:#18384e;
+ color:white;
+ text-decoration:none;
+ padding:14px 24px;
+ border-radius:30px;
+ font-weight:600;
+}
+
+section{
+ padding:35px 17px;
+ max-width:1000px;
+ margin:auto;
+}
+
+h2{
+ font-size:27px;
+ margin:0 0 20px;
+}
+
+.categories{
+ display:flex;
+ gap:10px;
+ overflow:auto;
+ padding-bottom:5px;
+}
+
+.category{
+ background:#eef9ff;
+ padding:12px 17px;
+ border-radius:25px;
+ white-space:nowrap;
+ font-size:14px;
+}
+
+.products{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:13px;
+}
+
+.card{
+ border:1px solid #e2eff7;
+ border-radius:20px;
+ overflow:hidden;
+ background:white;
+ box-shadow:0 6px 20px rgba(80,150,190,.08);
+}
+
+.pic{
+ height:150px;
+ background:linear-gradient(145deg,#f5fcff,#d4f0ff);
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ font-size:55px;
+}
+
+.info{padding:12px}
+
+.label{
+ font-size:10px;
+ background:#e8f7ff;
+ padding:5px 8px;
+ border-radius:10px;
+ display:inline-block;
+}
+
+.card h3{
+ margin:9px 0 6px;
+ font-size:16px;
+}
+
+.price{
+ font-size:17px;
+ font-weight:800;
+}
+
+.add{
  width:100%;
  border:0;
- background:#a9dcf8;
- padding:10px;
- border-radius:12px;
- margin-top:9px;
+ background:#b9e5ff;
+ color:#18384e;
+ padding:11px;
+ margin-top:10px;
+ border-radius:13px;
+ font-weight:700;
 }
-footer{
- background:#effaff;
- text-align:center;
- padding:25px;
+
+.about{
  margin-top:20px;
+ background:#edf9ff;
+ border-radius:25px;
+ padding:28px 20px;
+ text-align:center;
+}
+
+.about .big{font-size:50px}
+
+footer{
+ background:#18384e;
+ color:white;
+ text-align:center;
+ padding:35px 20px;
+ margin-top:35px;
+}
+
+footer small{opacity:.7}
+
+/* COS */
+.overlay{
+ display:none;
+ position:fixed;
+ inset:0;
+ background:rgba(0,0,0,.25);
+ z-index:20;
+}
+
+.drawer{
+ position:absolute;
+ right:0;
+ top:0;
+ height:100%;
+ width:min(360px,90%);
+ background:white;
+ padding:22px;
+ color:#18384e;
+ overflow:auto;
+}
+
+.close{
+ float:right;
+ border:0;
+ background:none;
+ font-size:28px;
+}
+
+.cartItem{
+ padding:13px 0;
+ border-bottom:1px solid #eee;
+ display:flex;
+ justify-content:space-between;
+ gap:10px;
+}
+
+.remove{
+ border:0;
+ background:#edf8ff;
+ border-radius:10px;
+}
+
+.total{
+ margin-top:22px;
+ font-size:21px;
+ font-weight:800;
+}
+
+@media(min-width:750px){
+ .products{grid-template-columns:repeat(4,1fr)}
+ .hero h1{font-size:65px}
+ .pic{height:190px}
 }
 </style>
 </head>
@@ -99,77 +249,213 @@ footer{
 <body>
 
 <div class="demo">
-☁️ Cloud Makeup — versiune demo
+☁️ CLOUD MAKEUP — magazin în pregătire
 </div>
 
 <header>
-<div class="logo">cloud MAKEUP ☁️</div>
-<button class="cart" onclick="showCart()">🛍️ Coș <span id="count">0</span></button>
+ <div class="logo">cloud <span>MAKEUP</span> ☁️</div>
+
+ <button class="cart" onclick="openCart()">
+ 🛍️ Coș <span id="count">0</span>
+ </button>
 </header>
 
+<main>
+
 <div class="hero">
-<div class="cloud">☁️</div>
-<h1>Beauty on a Cloud</h1>
-<p>Produsele tale preferate de beauty, într-un singur loc.</p>
-<a class="shop" href="#produse">Descoperă produsele</a>
+ <div>
+  <div class="cloud">☁️</div>
+  <h1>Beauty on<br>a Cloud.</h1>
+  <p>
+   Descoperă lumea Cloud Makeup — beauty simplu,
+   fresh și la prețuri care îți plac.
+  </p>
+
+  <a class="shop" href="#products">
+   Descoperă produsele
+  </a>
+ </div>
 </div>
 
-<section id="produse">
+<section>
+ <h2>Shop by category</h2>
 
-<h2>Noutăți 💙</h2>
+ <div class="categories">
+  <div class="category">💋 Buze</div>
+  <div class="category">✨ Ten</div>
+  <div class="category">👁️ Ochi</div>
+  <div class="category">🧴 Skincare</div>
+  <div class="category">🖌️ Accesorii</div>
+ </div>
+</section>
+
+<section id="products">
+
+<h2>Noutăți ☁️</h2>
 
 <div class="products">
 
-<div class="card">
-<div class="pic">🌸</div>
-<h3>Cloud Blush</h3>
-<div class="price">59 lei</div>
-<button onclick="add(59)">Adaugă în coș</button>
+ <div class="card">
+  <div class="pic">🌸</div>
+  <div class="info">
+   <span class="label">PRODUS DEMO</span>
+   <h3>Cloud Blush</h3>
+   <div class="price">59 lei</div>
+   <button class="add"
+   onclick="addProduct('Cloud Blush',59)">
+   Adaugă în coș
+   </button>
+  </div>
+ </div>
+
+ <div class="card">
+  <div class="pic">💄</div>
+  <div class="info">
+   <span class="label">PRODUS DEMO</span>
+   <h3>Cloud Lip Glow</h3>
+   <div class="price">49 lei</div>
+   <button class="add"
+   onclick="addProduct('Cloud Lip Glow',49)">
+   Adaugă în coș
+   </button>
+  </div>
+ </div>
+
+ <div class="card">
+  <div class="pic">👁️</div>
+  <div class="info">
+   <span class="label">PRODUS DEMO</span>
+   <h3>Dream Mascara</h3>
+   <div class="price">55 lei</div>
+   <button class="add"
+   onclick="addProduct('Dream Mascara',55)">
+   Adaugă în coș
+   </button>
+  </div>
+ </div>
+
+ <div class="card">
+  <div class="pic">💧</div>
+  <div class="info">
+   <span class="label">PRODUS DEMO</span>
+   <h3>Soft Skin Serum</h3>
+   <div class="price">69 lei</div>
+   <button class="add"
+   onclick="addProduct('Soft Skin Serum',69)">
+   Adaugă în coș
+   </button>
+  </div>
+ </div>
+
 </div>
 
-<div class="card">
-<div class="pic">💄</div>
-<h3>Cloud Lip Glow</h3>
-<div class="price">49 lei</div>
-<button onclick="add(49)">Adaugă în coș</button>
+<div class="about">
+ <div class="big">☁️</div>
+ <h2>Welcome to Cloud Makeup</h2>
+ <p>
+  Un nou loc pentru iubitorii de beauty.
+  Magazinul nostru este în pregătire.
+ </p>
 </div>
 
-<div class="card">
-<div class="pic">👁️</div>
-<h3>Dream Mascara</h3>
-<div class="price">55 lei</div>
-<button onclick="add(55)">Adaugă în coș</button>
-</div>
-
-<div class="card">
-<div class="pic">💧</div>
-<h3>Soft Skin Serum</h3>
-<div class="price">69 lei</div>
-<button onclick="add(69)">Adaugă în coș</button>
-</div>
-
-</div>
 </section>
 
+</main>
+
 <footer>
-<b>Cloud Makeup ☁️</b>
-<p>Magazin în pregătire</p>
-<small>Produsele și prețurile afișate momentan sunt demonstrative.</small>
+ <b>☁️ Cloud Makeup</b>
+ <p>Beauty on a Cloud.</p>
+ <small>
+  Versiune demonstrativă • Nu se efectuează comenzi sau plăți reale.
+ </small>
 </footer>
 
+
+<div class="overlay" id="overlay">
+ <div class="drawer">
+
+  <button class="close" onclick="closeCart()">×</button>
+
+  <h2>Coșul tău 🛍️</h2>
+
+  <div id="cartItems">
+   Coșul este gol.
+  </div>
+
+  <div class="total">
+   Total: <span id="total">0</span> lei
+  </div>
+
+  <p style="font-size:12px;color:#777">
+   Aceasta este momentan o versiune demo.
+  </p>
+
+ </div>
+</div>
+
+
 <script>
-let count=0;
-let total=0;
 
-function add(price){
- count++;
- total+=price;
- document.getElementById("count").innerText=count;
+let cart=[];
+
+function addProduct(name,price){
+
+ cart.push({
+  name:name,
+  price:price
+ });
+
+ updateCart();
+ openCart();
 }
 
-function showCart(){
- alert("Produse în coș: "+count+"\nTotal: "+total+" lei\n\nVersiune demo — nu se efectuează plăți.");
+function updateCart(){
+
+ document.getElementById("count").innerText=cart.length;
+
+ let items=document.getElementById("cartItems");
+
+ if(cart.length===0){
+  items.innerHTML="Coșul este gol.";
+ }
+ else{
+
+  items.innerHTML="";
+
+  cart.forEach(function(product,index){
+
+   items.innerHTML+=
+   '<div class="cartItem">'+
+   '<span>'+product.name+
+   '<br><b>'+product.price+' lei</b></span>'+
+   '<button class="remove" onclick="removeProduct('+index+')">×</button>'+
+   '</div>';
+
+  });
+ }
+
+ let total=0;
+
+ cart.forEach(function(product){
+  total+=product.price;
+ });
+
+ document.getElementById("total").innerText=total;
 }
+
+function removeProduct(index){
+ cart.splice(index,1);
+ updateCart();
+}
+
+function openCart(){
+ document.getElementById("overlay").style.display="block";
+}
+
+function closeCart(){
+ document.getElementById("overlay").style.display="none";
+}
+
 </script>
 
 </body>
